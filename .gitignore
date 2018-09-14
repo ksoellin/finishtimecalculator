@@ -1,0 +1,6 @@
+
+# PyCharm
+.idea/
+
+# generated QT files
+ui_*.py
