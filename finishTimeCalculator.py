@@ -10,6 +10,7 @@ from PyQt5.QtGui import QStandardItemModel, QStandardItem
 from ui_mainwindow import Ui_MainWindow
 
 
+# noinspection PyPep8Naming
 class Example(QMainWindow):
     
     def __init__(self):
@@ -44,7 +45,6 @@ class Example(QMainWindow):
 
         inputRaw = changed.text()
 
-
         # right format continue processing
         if re.match('[0-9]{2}:[0-9]{2}', inputRaw):
             changed.setBackground(Qt.white)
@@ -62,9 +62,9 @@ class Example(QMainWindow):
             changed.setBackground(Qt.red)
 
     def updateTimeCalc(self, row: int):
-        fromTimeItem : QStandardItem = self.time.item(row, 0)
-        toTimeItem : QStandardItem = self.time.item(row, 1)
-        diffTimeItem : QStandardItem = self.time.item(row, 2)
+        fromTimeItem: QStandardItem = self.time.item(row, 0)
+        toTimeItem: QStandardItem = self.time.item(row, 1)
+        diffTimeItem: QStandardItem = self.time.item(row, 2)
 
         if fromTimeItem.text() and toTimeItem.text():
             fromTime = QTime.fromString(fromTimeItem.text(), 'hh:mm')
@@ -77,8 +77,8 @@ class Example(QMainWindow):
                 toTimeItem.setToolTip("Begin time after end time")
                 return
 
-            diffSecs : int = fromTime.secsTo(toTime)
-            diffTime : QTime = QTime(0, 0).addSecs(diffSecs)
+            diffSecs: int = fromTime.secsTo(toTime)
+            diffTime: QTime = QTime(0, 0).addSecs(diffSecs)
             diffTimeItem.setText(diffTime.toString('hh:mm'))
 
             if row + 1 >= self.time.rowCount():
